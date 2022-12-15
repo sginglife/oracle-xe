@@ -26,3 +26,27 @@ from employees;
 select department_name || q'[department's manage id: ]' || manager_id
 as "department and manager"
 from departments;
+
+/*
+중복행
+    기본적으로 query 결과에는 중복 행을 포함한 모든 행이 표시됩니다.
+    
+distinct
+    결과에서 중복행 제거
+*/
+--중복행
+select department_id
+from employees;
+
+--중복행 제거
+select distinct department_id
+from employees;
+
+/*
+테이블 구조표시
+    describe 명령어를 사용하여 테이블 구조를 표시합니다.
+*/
+describe employees;
+
+
+
