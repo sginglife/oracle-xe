@@ -63,7 +63,89 @@ where salary between 2500 and 3500;
 --in 연산자를 사용하는 범위조건
 select employee_id, last_name, salary, manager_id
 from employees
-where management_id in (100, 101, 201);
+where manager_id in (100, 101, 201);
 
+/*
+like 연산자를 사용하여 패턴 일치
+    like 연산자를 사용하여 유효한 검색 문자열 값의 대체 문자 검색을 수행합니다.
+    검색조건에는 리터럴 문자나 숫자가 포함될 수 있습니다.
+    -%는 0개 이상의 문자를 나타냅니다.
+    -_은 문자를 나타냅니다.
+*/
+
+select first_name
+from employees
+where first_name like '%a%';
+
+--대체 문자 결합
+select last_name
+from employees
+where last_name like '_o%';
+
+--escape 식별자
+select employee_id, last_name, job_id
+from employees
+where job_id like '%SA\_%' escape '\';
+
+/*
+null 조건 사용
+    is null 연산자로 null을 테스트합니다.
+*/
+select last_name, manager_id
+from employees
+where manager_id is null;
+
+/*
+논리 연산자를 사용하여 조건정의
+    and : 구성 요소 조건 모두 참인 경우 TRUE 반환
+    or  : 구성 요소 조건 중 하나가 참인 경우 TRUE 반환
+    not : 조건이 거짓인 경우 TRUE를 반환
+*/
+
+--and 연산자 사용
+select employee_id, last_name, job_id, salary
+from employees
+where salary >= 10000 and job_id like '%MAN%';
+
+--or 연산자 사용
+select employee_id, last_name, job_id, salary
+from employees
+where salary >= 1000 or job_id like '%MAN%';
+
+--not 연산자 사용
+select last_name, job_id
+from employees
+where job_id not in ('IT_PROG', 'ST_CLERK', 'SA_MAN');
+
+/*
+order by 절
+    order by 절을 사용하여 검색된 절을 정렬합니다.
+    - asc  : 오름차순, 기본값
+    - desc : 내림차순
+    select문의 맨 마지막에 씁니다
+*/
+select last_name, job_id, department_id, hire_date
+from employees
+order by hire_date;
+
+--내림차순 정렬
+select last_name, job_id, department_id, hire_date
+from employees
+order by hire_date desc;
+
+--열 alias 기준으로 정렬
+select employee_id, last_name, salary*12 annsal
+from employees
+order by annsal;
+
+--열 숫자 위치를 사용하여 정렬
+select last_name, job_id, department_id, hire_date
+from employees
+order by 3;
+
+--여러 열 기준으로 정렬
+select last_name, job_id, department_id, hire_date
+from employees
+order by department_id, salary desc;
     
     
