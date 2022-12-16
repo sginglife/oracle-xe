@@ -114,6 +114,89 @@ select add_months('22-12-16', 1) from dual;
 select next_day('22-12-16', 6) from dual;
 select last_day('22-12-16') from dual;
 select round(sysdate, 'month') from dual;
+select trunc(sysdate, 'month') from dual;
+
+/*
+변환함수
+*/
+/*
+to_char() 함수
+    YYYY        숫자로 된 전체 연도
+    YEAR        영어 철자로 표기된 연도
+    MM          월의 두자리 값
+    MONTH       전체 월 이름
+    MON         월의 세자리 약어
+    DY          세 문자로 된 요일 약어
+    DAY         요일 전체 이름
+    DD          숫자 형식의 월간 일
+    AM 또는 PM   자오선 표시
+    A.M. 또는 P.M.   마침표가 있는 자오선 표시
+    MI          분(0-59)
+    SS          초(0-59)
+    TIMESTAMP   타입
+    FF          밀리세컨드
+*/
+--to_char() 함수
+select last_name, to_char(hire_date, 'YYYY-MM-DD HH24:MI:SS') as hiredate
+from employees;
+
+/*
+to_char() 숫자에 사용
+    9 - 숫자로 나타냄
+    0 - 0이 표시되도록 강제 적용
+    $ - 부동 달러 기호 배치
+    L - 부동 로컬 화폐 기호 배치
+    . - 소수점 출력
+    , - 천단위 표시자로 쉼표 출력
+    
+*/
+select to_char(salary, '$99,999.00') salary
+from employees
+where last_name = 'Earnst';
+
+select last_name, to_char(hire_date, 'YYYY-MM-DD')
+from employees
+where hire_date < TO_DATE('2005-01-01', 'YYYY-MM-DD');
+
+/*
+함수 중첩
+    단일 열 함수는 어떠한 레벨로도 중첩할 수 있습니다.
+    중첩된 함수는 가장 깊은 레벨에서 가장 낮은 레벨로 올라갑니다.
+*/
+SELECT last_name UPPER(CONCAT(SUBSTR(last_name, 1, 8), '_US'))
+FROM employees
+WHERE department_id = 60;
+
+/*
+NVL 함수
+    null값을 실제값으로 반환합니다.
+*/
+select last_name, salary, NVL(commission_pct, 0),
+    (salary*12) * (salary*12*NVL(commission_pct, 0)) AN_SAL
+from employees;
+
+/*
+NVL2() 함수
+    첫번째 표현식을 검사합니다. 첫번째 표현식이 null이 아니면 NVL2() 함수는 두번째 표현식을 
+    반환합니다.
+    첫번째 표현식이 null이면 세번째 표현식을 반환합니다.
+*/
+
+select last_name, salary, commission_pct, 
+    NVL2(commission_pct, 'SAL + COMM', 'SAL') SALARY_TYPE
+from employees;
+
+/*
+nullif() 함수
+     두 표현식을 비교 같으면 null, 다르면 expr1을 반환합니다.
+     그러나 expr1에 대해 리터럴 null을 지정할 수 없습니다.
+*/
+
+select first_name, length(first_name) "expr1",
+    last_name, length(last_name) "expr2",
+    nullif(length(first_name), length(last_name)) result
+from employees;
+
 
 
 
