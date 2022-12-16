@@ -1,26 +1,26 @@
 /*
-¼±ÅÃÀ» »ç¿ëÇÏ¿© Çà Á¦ÇÑ
-    whereÇàÀ» »ç¿ëÇÏ¿© ¹İÈ¯µÇ´Â ÇàÀ» Á¦ÇÑÇÕ´Ï´Ù.
+ì„ íƒì„ ì‚¬ìš©í•˜ì—¬ í–‰ ì œí•œ
+    whereí–‰ì„ ì‚¬ìš©í•˜ì—¬ ë°˜í™˜ë˜ëŠ” í–‰ì„ ì œí•œí•©ë‹ˆë‹¤.
     
 where
-    Á¶°ÇÀ» ÃæÁ·ÇÏ´Â ÇàÀ¸·Î query¸¦ Á¦ÇÑÇÕ´Ï´Ù.
+    ì¡°ê±´ì„ ì¶©ì¡±í•˜ëŠ” í–‰ìœ¼ë¡œ queryë¥¼ ì œí•œí•©ë‹ˆë‹¤.
     
-    ¼¼°¡Áö ¿ä¼Ò:
-        -¿­ ÀÌ¸§
-        -ºñ±³ Á¶°Ç
-        -¿­ ÀÌ¸§, »ó¼ö ¶Ç´Â °ª ¸®½ºÆ®
+    ì„¸ê°€ì§€ ìš”ì†Œ:
+        -ì—´ ì´ë¦„
+        -ë¹„êµ ì¡°ê±´
+        -ì—´ ì´ë¦„, ìƒìˆ˜ ë˜ëŠ” ê°’ ë¦¬ìŠ¤íŠ¸
 */
 
---whereÀı »ç¿ë
-/*select employees_id, last_name, job_id, department_id
+--whereì ˆ ì‚¬ìš©
+select employees_id, last_name, job_id, department_id
 from employees
-where department_id = 90;*/
+where department_id = 90;
 
 /*
-¹®ÀÚ¿­ ¹× ³¯Â¥
-    ¹®ÀÚ¿­ ¹× ³¯Â¥ °ªÀº ÀÛÀº µû¿ÈÇ¥·Î ¹­½À´Ï´Ù.
-    ¹®ÀÚ °ªÀº ´ë¼Ò¹®ÀÚ¸¦ ±¸ºĞÇÏ°í ³¯Â¥ °°Àº Çü½ÄÀ» ±¸ºĞÇÕ´Ï´Ù.
-    ±âº» ³¯Â¥ Ç¥½Ã Çü½ÄÀº dd-mon-rr ÀÔ´Ï´Ù.
+ë¬¸ìì—´ ë° ë‚ ì§œ
+    ë¬¸ìì—´ ë° ë‚ ì§œ ê°’ì€ ì‘ì€ ë”°ì˜´í‘œë¡œ ë¬¶ìŠµë‹ˆë‹¤.
+    ë¬¸ì ê°’ì€ ëŒ€ì†Œë¬¸ìë¥¼ êµ¬ë¶„í•˜ê³  ë‚ ì§œ ê°™ì€ í˜•ì‹ì„ êµ¬ë¶„í•©ë‹ˆë‹¤.
+    ê¸°ë³¸ ë‚ ì§œ í‘œì‹œ í˜•ì‹ì€ dd-mon-rr ì…ë‹ˆë‹¤.
 */
 
 
@@ -34,116 +34,117 @@ from employees;
 
 
 /*
-ºñ±³ ¿¬»êÀÚ
-    Æ¯Á¤ Ç¥Çö½ÄÀ» ´Ù¸¥ °ªÀÌ³ª Ç¥Çö½Ä°ú ºñ±³ÇÏ´Â Á¶°Ç¿¡¼­ »ç¿ëµË´Ï´Ù.
+ë¹„êµ ì—°ì‚°ì
+    íŠ¹ì • í‘œí˜„ì‹ì„ ë‹¤ë¥¸ ê°’ì´ë‚˜ í‘œí˜„ì‹ê³¼ ë¹„êµí•˜ëŠ” ì¡°ê±´ì—ì„œ ì‚¬ìš©ë©ë‹ˆë‹¤.
     
-    =  °°À½
-    >  º¸´Ù Å­
-    >= Å©°Å³ª °°À½
-    <  º¸´Ù ÀÛÀ½
-    <= º¸´Ù ÀÛ°Å³ª °°À½
-    <> °°Áö ¾ÊÀ½
-    between ... and ...     µÎ °ª »çÀÌ(°æ°è°ª Æ÷ÇÔ)
-    in(set)                 °ª ¸®½ºÆ® Áß ÀÏÄ¡ÇÏ´Â °ª °Ë»ö
-    like                    ÀÏÄ¡ÇÏ´Â ¹®ÀÚ ÆĞÅÏ °Ë»ö
-    is null                 null°ªÀÎÁö ¿©ºÎ
+    =  ê°™ìŒ
+    >  ë³´ë‹¤ í¼
+    >= í¬ê±°ë‚˜ ê°™ìŒ
+    <  ë³´ë‹¤ ì‘ìŒ
+    <= ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìŒ
+    <> ê°™ì§€ ì•ŠìŒ
+    between ... and ...     ë‘ ê°’ ì‚¬ì´(ê²½ê³„ê°’ í¬í•¨)
+    in (set)                ê°’ ë¦¬ìŠ¤íŠ¸ ì¤‘ ì¼ì¹˜í•˜ëŠ” ê°’ ê²€ìƒ‰
+    like                    ì¼ì¹˜í•˜ëŠ” ë¬¸ì íŒ¨í„´ ê²€ìƒ‰
+    is null                 nullê°’ì¸ì§€ ì—¬ë¶€
     
 */
 
---ºñ±³ ¿¬»êÀÚ »ç¿ë
+--ë¹„êµ ì—°ì‚°ì ì‚¬ìš©
 select last_name, salary
 from employees
 where salary <= 3000;
 
---between ¿¬»êÀÚ¸¦ »ç¿ëÇÏ´Â ¹üÀ§ Á¶°Ç
+--between ì—°ì‚°ìë¥¼ ì‚¬ìš©í•˜ëŠ” ë²”ìœ„ ì¡°ê±´
 select last_name, salary
 from employees
 where salary between 2500 and 3500;
 
---in ¿¬»êÀÚ¸¦ »ç¿ëÇÏ´Â ¹üÀ§Á¶°Ç
+--in ì—°ì‚°ìë¥¼ ì‚¬ìš©í•˜ëŠ” ë²”ìœ„ì¡°ê±´
 select employee_id, last_name, salary, manager_id
 from employees
 where manager_id in (100, 101, 201);
 
 /*
-like ¿¬»êÀÚ¸¦ »ç¿ëÇÏ¿© ÆĞÅÏ ÀÏÄ¡
-    like ¿¬»êÀÚ¸¦ »ç¿ëÇÏ¿© À¯È¿ÇÑ °Ë»ö ¹®ÀÚ¿­ °ªÀÇ ´ëÃ¼ ¹®ÀÚ °Ë»öÀ» ¼öÇàÇÕ´Ï´Ù.
-    °Ë»öÁ¶°Ç¿¡´Â ¸®ÅÍ·² ¹®ÀÚ³ª ¼ıÀÚ°¡ Æ÷ÇÔµÉ ¼ö ÀÖ½À´Ï´Ù.
-    -%´Â 0°³ ÀÌ»óÀÇ ¹®ÀÚ¸¦ ³ªÅ¸³À´Ï´Ù.
-    -_Àº ¹®ÀÚ¸¦ ³ªÅ¸³À´Ï´Ù.
+like ì—°ì‚°ìë¥¼ ì‚¬ìš©í•˜ì—¬ íŒ¨í„´ ì¼ì¹˜
+    like ì—°ì‚°ìë¥¼ ì‚¬ìš©í•˜ì—¬ ìœ íš¨í•œ ê²€ìƒ‰ ë¬¸ìì—´ ê°’ì˜ ëŒ€ì²´ ë¬¸ì ê²€ìƒ‰ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+    ê²€ìƒ‰ì¡°ê±´ì—ëŠ” ë¦¬í„°ëŸ´ ë¬¸ìë‚˜ ìˆ«ìê°€ í¬í•¨ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+    -%ëŠ” 0ê°œ ì´ìƒì˜ ë¬¸ìë¥¼ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.
+    -_ì€ ë¬¸ìë¥¼ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.
 */
 
 select first_name
 from employees
 where first_name like '%a%';
 
---´ëÃ¼ ¹®ÀÚ °áÇÕ
+--ëŒ€ì²´ ë¬¸ì ê²°í•©
 select last_name
 from employees
 where last_name like '_o%';
 
---escape ½Äº°ÀÚ
+--escape ì‹ë³„ì
 select employee_id, last_name, job_id
 from employees
 where job_id like '%SA\_%' escape '\';
+--escapeë¥¼ í†µí•´ ì´ìŠ¤ì¼€ì´í”„ í‘œì‹œ ë¬¸ì ì§€ì •, ì´ìŠ¤ì¼€ì´í”„ ë¬¸ì ë’¤ %ì™€ _ëŠ” ë¬¸ì ì·¨ê¸‰
 
 /*
-null Á¶°Ç »ç¿ë
-    is null ¿¬»êÀÚ·Î nullÀ» Å×½ºÆ®ÇÕ´Ï´Ù.
+null ì¡°ê±´ ì‚¬ìš©
+    is null ì—°ì‚°ìë¡œ nullì„ í…ŒìŠ¤íŠ¸í•©ë‹ˆë‹¤.
 */
 select last_name, manager_id
 from employees
 where manager_id is null;
 
 /*
-³í¸® ¿¬»êÀÚ¸¦ »ç¿ëÇÏ¿© Á¶°ÇÁ¤ÀÇ
-    and : ±¸¼º ¿ä¼Ò Á¶°Ç ¸ğµÎ ÂüÀÎ °æ¿ì TRUE ¹İÈ¯
-    or  : ±¸¼º ¿ä¼Ò Á¶°Ç Áß ÇÏ³ª°¡ ÂüÀÎ °æ¿ì TRUE ¹İÈ¯
-    not : Á¶°ÇÀÌ °ÅÁşÀÎ °æ¿ì TRUE¸¦ ¹İÈ¯
+ë…¼ë¦¬ ì—°ì‚°ìë¥¼ ì‚¬ìš©í•˜ì—¬ ì¡°ê±´ì •ì˜
+    and : êµ¬ì„± ìš”ì†Œ ì¡°ê±´ ëª¨ë‘ ì°¸ì¸ ê²½ìš° TRUE ë°˜í™˜
+    or  : êµ¬ì„± ìš”ì†Œ ì¡°ê±´ ì¤‘ í•˜ë‚˜ê°€ ì°¸ì¸ ê²½ìš° TRUE ë°˜í™˜
+    not : ì¡°ê±´ì´ ê±°ì§“ì¸ ê²½ìš° TRUEë¥¼ ë°˜í™˜
 */
 
---and ¿¬»êÀÚ »ç¿ë
+--and ì—°ì‚°ì ì‚¬ìš©
 select employee_id, last_name, job_id, salary
 from employees
 where salary >= 10000 and job_id like '%MAN%';
 
---or ¿¬»êÀÚ »ç¿ë
+--or ì—°ì‚°ì ì‚¬ìš©
 select employee_id, last_name, job_id, salary
 from employees
 where salary >= 1000 or job_id like '%MAN%';
 
---not ¿¬»êÀÚ »ç¿ë
+--not ì—°ì‚°ì ì‚¬ìš©
 select last_name, job_id
 from employees
 where job_id not in ('IT_PROG', 'ST_CLERK', 'SA_MAN');
 
 /*
-order by Àı
-    order by ÀıÀ» »ç¿ëÇÏ¿© °Ë»öµÈ ÀıÀ» Á¤·ÄÇÕ´Ï´Ù.
-    - asc  : ¿À¸§Â÷¼ø, ±âº»°ª
-    - desc : ³»¸²Â÷¼ø
-    select¹®ÀÇ ¸Ç ¸¶Áö¸·¿¡ ¾¹´Ï´Ù
+order by ì ˆ
+    order by ì ˆì„ ì‚¬ìš©í•˜ì—¬ ê²€ìƒ‰ëœ ì ˆì„ ì •ë ¬í•©ë‹ˆë‹¤.
+    - asc  : ì˜¤ë¦„ì°¨ìˆœ, ê¸°ë³¸ê°’
+    - desc : ë‚´ë¦¼ì°¨ìˆœ
+    selectë¬¸ì˜ ë§¨ ë§ˆì§€ë§‰ì— ì”ë‹ˆë‹¤
 */
 select last_name, job_id, department_id, hire_date
 from employees
 order by hire_date;
 
---³»¸²Â÷¼ø Á¤·Ä
+--ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 select last_name, job_id, department_id, hire_date
 from employees
 order by hire_date desc;
 
---¿­ alias ±âÁØÀ¸·Î Á¤·Ä
+--ì—´ alias ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬
 select employee_id, last_name, salary*12 annsal
 from employees
 order by annsal;
 
---¿­ ¼ıÀÚ À§Ä¡¸¦ »ç¿ëÇÏ¿© Á¤·Ä
+--ì—´ ìˆ«ì ìœ„ì¹˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ì •ë ¬
 select last_name, job_id, department_id, hire_date
 from employees
 order by 3;
 
---¿©·¯ ¿­ ±âÁØÀ¸·Î Á¤·Ä
+--ì—¬ëŸ¬ ì—´ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬
 select last_name, job_id, department_id, hire_date
 from employees
 order by department_id, salary desc;
