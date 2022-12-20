@@ -80,3 +80,13 @@ group by department_id;
 select max(salary)
 from employees
 group by department_id;
+
+
+
+
+
+
+
+
+
+
