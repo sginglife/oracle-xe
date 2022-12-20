@@ -103,7 +103,7 @@ where department_id = 90;
 
 months_between() - 두 날짜 사이의 월수
 add_months() - 날짜에 월 추가
-next_day() - 지정된 날짜에 다음날 추가
+next_day() - 지정된 날짜 다음의 지정된 요일 출력
 last_day() - 월의 마지막날
 round() - 날짜 반올림
 trunc() - 날짜 버림
@@ -195,6 +195,28 @@ nullif() 함수
 select first_name, length(first_name) "expr1",
     last_name, length(last_name) "expr2",
     nullif(length(first_name), length(last_name)) result
+from employees;
+
+--coalesce() 함수
+	리스트에서 null이 아닌 첫번째 표현식을 반환합니다.
+
+select last_name, employee_id, 
+	coalesce(to_char(commision_pct), to_char(manager_id), 'no commision and no manager')
+from employees;
+
+
+/*조건부 표현식
+	sql에서 if-then-else 논리를 사용할 수 있습니다.
+	-case 식
+	-decode() 함수
+*/
+--case 식
+
+select last_name, job_id, salary, 
+	case job_id when 'IT_PROG' then 1.10*salary
+		when 'ST_CLERK' then 1.15*salary
+		when 'SA_REP' then 1.20*salary
+	else salary end 'REVISED_SALARY'
 from employees;
 
 
