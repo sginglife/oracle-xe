@@ -19,7 +19,7 @@ SELECT * FROM locations;
 
 /*
 using 절로 조인 생성
-    natural join은 이름과 데이터 유형이 대응되는 모둔 열을 사용하여 테이블을 조인합니다.
+    natural join은 이름과 데이터 유형이 대응되는 모든 열을 사용하여 테이블을 조인합니다.
 */
 SELECT employee_id, last_name, location_id, department_id
 from employees join departments
