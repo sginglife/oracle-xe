@@ -82,10 +82,53 @@ alter table simple drop(addr);
 */
 
 create table dept4(
-    deptno number(2) constraint dept4_deptno_pk primary key
-    dname varchar2(15) default '영업부'
+    deptno number(2) constraint dept4_deptno_pk primary key,
+    dname varchar2(15) default '영업부',
     loc char(1) constraint dept4_loc_ck check(loc in('1', '2'))
     );
+    
+desc dept4;
+
+insert into dept4 (deptno, dname, loc)
+values(1, '마케팅', 1);
+commit;
+
+select * from dept4;
+
+create table dept5(
+deptno number(2) primary key, 
+dname varchar(15) not null
+);
+
+insert into dept5  (deptno, dname)
+values(1, 'QA');
+
+select * from dept5;
+commit;
+rollback;
+
+create table emp(
+empno number(4) primary key, 
+ename varchar(15) not null,
+deptno number(2),  
+constraint emp_dept5_fk foreign key (deptno)
+    references dept5(deptno)
+);
+commit;
+select * from dept5;
+
+
+--제약 조건 검색하기
+select * from user_constraints;
+where constraint_name = 'dept4_deptno_pk';
+
+--제약 조건은 수정 불가능, 삭제만 가능합니다.
+alter table dept4 drop constraint dept4_loc_ck;
+
+--제약조건 추가하기
+alter table dept4 add constraint dept4_loc2_ck check(loc in('1', '2'));
+
+
 
 
 
