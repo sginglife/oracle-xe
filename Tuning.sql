@@ -1,0 +1,1 @@
+SELECT MAX(ROWNUM) FROM orderdetails;
