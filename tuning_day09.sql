@@ -1,0 +1,36 @@
+
+EXPLAIN PLAN FOR
+SELECT d.dname, e.ename
+FROM dept d, emp e
+WHERE d.deptno = e.deptno
+AND e.sal >= 1000
+ORDER BY e.ename;
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+ALTER SESSION SET STATISTICS_LEVEL = ALL;
+ROLLBACK;
+
+SELECT * FROM emp
+WHERE empno = 7844;
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
